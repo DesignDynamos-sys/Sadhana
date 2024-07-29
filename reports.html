@@ -1,0 +1,56 @@
+<!-- reports.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Wellness Assessment Report</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mental Wellness Assessment Report</h1>
+        <div class="results">
+            <h2>Assessment Results:</h2>
+            <p id="resultQuestion1"></p>
+            <!-- Repeat similar blocks for other questions -->
+        </div>
+        <div class="decision">
+            <h2>Next Steps:</h2>
+            <label for="teacherSelect">Choose the teacher you want to meet:</label>
+            <select id="teacherSelect">
+                <option value="teacher1">Teacher 1</option>
+                <option value="teacher2">Teacher 2</option>
+                <option value="teacher3">Teacher 3</option>
+            </select>
+            <br>
+            <label for="psychiatristSelect">Do you want to meet a psychiatrist?</label>
+            <select id="psychiatristSelect">
+                <option value="appoint">Appoint</option>
+                <option value="cancel">Cancel</option>
+            </select>
+            <br>
+            <button onclick="handleDecision()">Submit Decision</button>
+        </div>
+        <a href="schedule.html">Proceed to Download & Scheduling</a>
+    </div>
+    <script>
+        // Retrieve and parse data from localStorage
+        const results = JSON.parse(localStorage.getItem('assessmentResults'));
+
+        // Populate the results in the report
+        document.getElementById('resultQuestion1').textContent = `Question 1: ${results.question1}%`;
+        // Repeat for other questions
+
+        function handleDecision() {
+            const teacher = document.getElementById('teacherSelect').value;
+            const psychiatrist = document.getElementById('psychiatristSelect').value;
+            console.log('Teacher:', teacher);
+            console.log('Psychiatrist:', psychiatrist);
+            alert(`Decision submitted:\nTeacher: ${teacher}\nPsychiatrist: ${psychiatrist}`);
+        }
+    </script>
+</body>
+</html>

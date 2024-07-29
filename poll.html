@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Wellness Assessment</title>
+    <link rel="stylesheet" href="polldep.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Mental Wellness Assessment</h1>
+        <form id="assessmentForm">
+            <div class="form-group">
+                <label for="question1">Question 1: How often do you feel sad or depressed?</label>
+                <input type="range" id="question1" name="question1" min="0" max="100" value="50" oninput="updateLabel(this)">
+                <span id="question1Label" class="range-label">50%</span>
+            </div>
+            <div class="form-group">
+                <label for="question2">Question 2: How often do you feel anxious or worried?</label>
+                <input type="range" id="question2" name="question2" min="0" max="100" value="50" oninput="updateLabel(this)">
+                <span id="question2Label" class="range-label">50%</span>
+            </div>
+            <div class="form-group">
+                <label for="question3">Question 3: How often do you feel irritable or easily annoyed?</label>
+                <input type="range" id="question3" name="question3" min="0" max="100" value="50" oninput="updateLabel(this)">
+                <span id="question3Label" class="range-label">50%</span>
+            </div>
+            <div class="form-group">
+                <label for="question4">Question 4: How often do you lose interest in activities you once enjoyed?</label>
+                <input type="range" id="question4" name="question4" min="0" max="100" value="50" oninput="updateLabel(this)">
+                <span id="question4Label" class="range-label">50%</span>
+            </div>
+            <div class="form-group">
+                <label for="question5">Question 5: How often do you struggle to get out of bed in the morning?</label>
+                <input type="range" id="question5" name="question5" min="0" max="100" value="50" oninput="updateLabel(this)">
+                <span id="question5Label" class="range-label">50%</span>
+            </div>
+            <div class="form-group">
+                <label for="question6">Question 6: How often do you find it difficult to make decisions?</label>
+                <input type="range" id="question6" name="question6" min="0" max="100" value="50" oninput="updateLabel(this)">
+                <span id="question6Label" class="range-label">50%</span>
+            </div>
+            <div class="form-group">
+                <label for="question7">Question 7: How often do you feel hopeless about the future?</label>
+                <input type="range" id="question7" name="question7" min="0" max="100" value="50" oninput="updateLabel(this)">
+                <span id="question7Label" class="range-label">50%</span>
+            </div>
+            <div class="form-group">
+                <label for="question8">Question 8: How often do you feel worthless or excessively guilty?</label>
+                <input type="range" id="question8" name="question8" min="0" max="100" value="50" oninput="updateLabel(this)">
+                <span id="question8Label" class="range-label">50%</span>
+            </div>
+            <div class="form-group">
+                <label for="question9">Question 9: How often do you think about harming yourself?</label>
+                <input type="range" id="question9" name="question9" min="0" max="100" value="50" oninput="updateLabel(this)">
+                <span id="question9Label" class="range-label">50%</span>
+            </div>
+            <div class="form-group">
+                <label for="question10">Question 10: How often do you think about harming yourself?</label>
+                <input type="range" id="question10" name="question10" min="0" max="100" value="50" oninput="updateLabel(this)">
+                <span id="question10Label" class="range-label">50%</span>
+            </div>
+            
+            <button type="submit">Submit</button> 
+        </form>
+        
+    </div>
+</body>
+</html>

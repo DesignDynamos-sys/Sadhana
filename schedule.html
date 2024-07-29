@@ -1,0 +1,66 @@
+<!-- schedule.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download & Scheduling</title>
+    <style>
+        /* Add your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Download Your Report & Schedule Meetings</h1>
+        <div class="download">
+            <h2>Download Your Assessment Report</h2>
+            <button onclick="downloadReport()">Download Report</button>
+        </div>
+        <div class="scheduling">
+            <h2>Schedule a Meeting</h2>
+            <label for="teacherSchedule">Schedule a time to meet with a teacher:</label>
+            <input type="datetime-local" id="teacherSchedule">
+            <br>
+            <label for="psychiatristSchedule">Schedule a time to meet with a psychiatrist:</label>
+            <input type="datetime-local" id="psychiatristSchedule">
+            <br>
+            <button onclick="scheduleMeetings()">Schedule Meetings</button>
+        </div>
+        <div class="feedback">
+            <h2>Provide Feedback</h2>
+            <label for="feedback">Your Feedback:</label>
+            <textarea id="feedback" rows="4" cols="50"></textarea>
+            <br>
+            <button onclick="submitFeedback()">Submit Feedback</button>
+        </div>
+    </div>
+    <script>
+        function downloadReport() {
+            const results = JSON.parse(localStorage.getItem('assessmentResults'));
+            let reportContent = 'Mental Wellness Assessment Report\n\n';
+            for (const [question, answer] of Object.entries(results)) {
+                reportContent += `${question.replace('question', 'Question ')}: ${answer}%\n`;
+            }
+            const blob = new Blob([reportContent], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'Mental_Wellness_Assessment_Report.txt';
+            link.click();
+        }
+
+        function scheduleMeetings() {
+            const teacherSchedule = document.getElementById('teacherSchedule').value;
+            const psychiatristSchedule = document.getElementById('psychiatristSchedule').value;
+            console.log('Teacher Schedule:', teacherSchedule);
+            console.log('Psychiatrist Schedule:', psychiatristSchedule);
+            alert(`Meetings scheduled:\nTeacher: ${teacherSchedule}\nPsychiatrist: ${psychiatristSchedule}`);
+        }
+
+        function submitFeedback() {
+            const feedback = document.getElementById('feedback').value;
+            console.log('Feedback:', feedback);
+            alert('Thank you for your feedback!');
+        }
+    </script>
+</body>
+</html>
